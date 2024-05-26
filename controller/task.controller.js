@@ -9,7 +9,7 @@ taskController.createTask = async (req, res) => {
     await newTask.save();
     res.status(200).json({ status: "ok", data: newTask });
   } catch (err) {
-    res.status(400).json({ status: "fail", error: err });
+    res.status(400).json({ status: "fail1", error: err });
   }
 };
 
@@ -18,7 +18,7 @@ taskController.getTask = async (req, res) => {
     const taskList = await Task.find({}).select("-__v");
     res.status(200).json({ status: "ok", data: taskList });
   } catch (err) {
-    res.status(400).json({ status: "fail", error: err });
+    res.status(400).json({ status: "fail2", error: err });
   }
 };
 
@@ -33,7 +33,7 @@ taskController.putTask = async (req, res) => {
     await userId.save();
     res.status(200).json({ status: "success", data: userId });
   } catch (err) {
-    res.status(400).json({ status: "fail", error: err });
+    res.status(400).json({ status: "fail3", error: err });
   }
 };
 
@@ -42,7 +42,7 @@ taskController.deleteTask = async (req, res) => {
     const deleteItem = await Task.findByIdAndDelete(req.params.id);
     res.status(200).json({ status: "delete", data: deleteItem });
   } catch (err) {
-    res.status(400).json({ status: "fail", error: err });
+    res.status(400).json({ status: "fail4", error: err });
   }
 };
 
